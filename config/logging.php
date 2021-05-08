@@ -39,6 +39,7 @@ return [
             'driver' => 'stack',
             'channels' => ['single', 'stderr', 'syslog'],
             'ignore_exceptions' => false,
+            'formatter' => \Monolog\Formatter\JsonFormatter::class,
         ],
 
         'single' => [
