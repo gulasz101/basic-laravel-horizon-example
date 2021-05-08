@@ -38,6 +38,12 @@ services:
     image: memcached:latest
     ports:
       - "11211:11211"
+  mailhog:
+    image: mailhog/mailhog
+    restart: always
+    ports:
+      - "1025:1025"
+      - "8025:8025"
 volumes:
   data_mariadb:
   data_redis:
