@@ -41,6 +41,12 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "xdebug-disable": [
+            "if [ -f /.dockerenv ] && [ \"\" != \"$(php -m | grep -i xdebug 2>&1)\" ] ; then rm -f /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && echo OK ; fi"
+        ],
+        "xdebug-enable": [
+            "if [ -f /.dockerenv ] && [ \"\" = \"$(php -m | grep -i xdebug 2>&1)\" ] ; then docker-php-ext-enable xdebug && echo OK ; fi"
         ]
     },
     "extra": {
