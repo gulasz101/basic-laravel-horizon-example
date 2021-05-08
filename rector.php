@@ -11,11 +11,9 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters = $containerConfigurator->parameters();
 
     // Define what rule sets will be applied
-    $parameters->set(Option::SETS, [
-        SetList::DEAD_CODE,
-        SetList::CODE_QUALITY,
-        SetList::CODING_STYLE,
-    ]);
+    $containerConfigurator->import(SetList::DEAD_CODE);
+    $containerConfigurator->import(SetList::CODE_QUALITY);
+    $containerConfigurator->import(SetList::CODING_STYLE);
 
     // get services (needed for register a single rule)
     $services = $containerConfigurator->services();
