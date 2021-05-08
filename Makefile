@@ -4,18 +4,18 @@ all:
 
 up: down
 	docker compose up -d
-	docker compose exec app php artisan optimize:clear
+	make clear-app
 down:
 	docker compose down
 bash:
 	docker compose exec app bash
 logs:
 	docker compose logs -f app
-horizon-up:
+horizon-up: horizon-down
 	docker compose exec app supervisorctl start horizon
 horizon-down:
-	docker compose exec app supervisorctl down horizon
-scheduler-up:
+	docker compose exec app supervisorctl stop horizon
+scheduler-up: scheduler-down
 	docker compose exec app supervisorctl start scheduler
 scheduler-down:
 	docker compose exec app supervisorctl stop scheduler
