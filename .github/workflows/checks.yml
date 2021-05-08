@@ -41,16 +41,16 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest
 
       - name: Run lint check
-        run: vendor/bin/parallel-lint --exclude vendor .
+        run: vendor/bin/parallel-lint --exclude vendor . --no-progress
 
       - name: Run ECS check
-        run: vendor/bin/ecs check
+        run: vendor/bin/ecs check --no-progress-bar
 
       - name: Run rector check
-        run: vendor/bin/rector process app --dry-run
+        run: vendor/bin/rector process app --dry-run --no-progress-bar
 
       - name: Run phpstan check
-        run: vendor/bin/phpstan analyse -c phpstan.neon --memory-limit=512M
+        run: vendor/bin/phpstan analyse -c phpstan.neon --memory-limit=512M --no-progress
 
       - name: Run tests with coverage
         id: tests
