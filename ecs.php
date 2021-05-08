@@ -12,8 +12,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 	$parameters->set(
 		Option::PATHS,
 		[
-			__DIR__ . '/src',
+			__DIR__ . '/app',
 			__DIR__ . '/tests',
+			__DIR__ . '/config',
+			__DIR__ . '/routes',
+			__DIR__ . '/database',
 			__DIR__ . '/ecs.php',
 		]
 	);
@@ -36,5 +39,5 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 	$parameters->set(Option::INDENTATION, 'tab');
 
 	// [default: PHP_EOL]; other options: "\n"
-    // $parameters->set(Option::LINE_ENDING, "\r\n");
+	// $parameters->set(Option::LINE_ENDING, "\r\n");
 };
