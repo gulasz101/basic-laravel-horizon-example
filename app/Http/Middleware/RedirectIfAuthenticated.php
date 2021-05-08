@@ -9,13 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
-	/**
-	 * Handle an incoming request.
-	 *
-	 * @param  string|null  ...$guards
-	 * @return mixed
-	 */
-	public function handle(Request $request, Closure $next, array $guards)
+	public function handle(Request $request, Closure $next, array $guards): mixed
 	{
 		$guards = empty($guards) ? [null] : $guards;
 
